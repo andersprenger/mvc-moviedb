@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzC-sy-Epe">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7vR-rj-koW">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="965"/>
@@ -61,13 +61,13 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7D-VW-wMP">
                                                 <rect key="frame" x="21" y="261" width="372" height="690"/>
-                                                <mutableString key="text">Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. 
+                                                <string key="text">Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. 
 
 With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his.Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. 
 
 The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his. 
 
-Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his. </mutableString>
+Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his. </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -104,7 +104,7 @@ Simba idolises his father, King Mufasa, and takes to heart his own royal destiny
                         <constraints>
                             <constraint firstItem="7vR-rj-koW" firstAttribute="width" secondItem="WIO-zV-NZl" secondAttribute="width" id="6d9-DD-E7x"/>
                             <constraint firstItem="fzC-sy-Epe" firstAttribute="top" secondItem="3EX-0H-KMM" secondAttribute="top" id="IZD-wE-P6b"/>
-                            <constraint firstItem="fzC-sy-Epe" firstAttribute="bottom" secondItem="3EX-0H-KMM" secondAttribute="bottom" priority="800" id="UcQ-sx-038"/>
+                            <constraint firstItem="fzC-sy-Epe" firstAttribute="bottom" secondItem="WIO-zV-NZl" secondAttribute="bottom" priority="800" id="UcQ-sx-038"/>
                             <constraint firstItem="fzC-sy-Epe" firstAttribute="trailing" secondItem="3EX-0H-KMM" secondAttribute="trailing" id="bWD-y6-eqp"/>
                             <constraint firstItem="fzC-sy-Epe" firstAttribute="leading" secondItem="3EX-0H-KMM" secondAttribute="leading" id="dYN-UP-daR"/>
                         </constraints>
