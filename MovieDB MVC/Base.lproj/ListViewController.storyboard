@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19529"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="4kv-8a-gT7">
+            <objects>
+                <tableViewController id="AHe-0J-ufO" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="xvs-ZC-slw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ImY-D6-Fsb">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="21"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ImY-D6-Fsb" id="1Sx-13-tT0">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="21"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOR-dK-ubX">
+                                            <rect key="frame" x="15" y="0.0" width="384" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="IOR-dK-ubX" firstAttribute="leading" secondItem="1Sx-13-tT0" secondAttribute="leading" constant="15" id="89O-me-Pjg"/>
+                                        <constraint firstAttribute="trailing" secondItem="IOR-dK-ubX" secondAttribute="trailing" constant="15" id="XEm-9t-m9F"/>
+                                        <constraint firstItem="IOR-dK-ubX" firstAttribute="top" secondItem="1Sx-13-tT0" secondAttribute="top" id="dvO-w7-wry"/>
+                                        <constraint firstAttribute="bottom" secondItem="IOR-dK-ubX" secondAttribute="bottom" id="sey-dl-u4l"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="118" id="frY-rw-9NB">
+                                <rect key="frame" x="0.0" y="65.5" width="414" height="118"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="frY-rw-9NB" id="7vt-GC-CwK">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="118"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-way-home-cover" translatesAutoresizingMaskIntoConstraints="NO" id="2hq-Lb-Ni4">
+                                            <rect key="frame" x="15" y="0.0" width="79" height="118"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="118" id="axO-eS-X2M"/>
+                                                <constraint firstAttribute="width" constant="79" id="gjx-kC-niw"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d55-j9-M27">
+                                            <rect key="frame" x="109" y="11" width="290" height="96"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Homem-Aranha: Sem Volta Para Casa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JO-la-BSs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="253.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEP-7p-maS">
+                                                    <rect key="frame" x="0.0" y="27" width="281" height="47"/>
+                                                    <string key="text">Peter Parker é desmascarado e não consegue mais separar sua vida normal dos grandes riscos de ser um super-herói. Quando ele pede ajuda ao Doutor Estranho, os riscos se tornam ainda mais perigosos, e o forçam a descobrir o que realmente significa ser o Homem-Aranha.
+</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭐️8.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diq-uI-RPp">
+                                                    <rect key="frame" x="0.0" y="84" width="35" height="12"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="12" id="Kv0-rl-4nI"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="d55-j9-M27" firstAttribute="leading" secondItem="2hq-Lb-Ni4" secondAttribute="trailing" constant="15" id="6dK-Ej-GRN"/>
+                                        <constraint firstAttribute="trailing" secondItem="d55-j9-M27" secondAttribute="trailing" constant="15" id="8gI-xd-zxZ"/>
+                                        <constraint firstItem="2hq-Lb-Ni4" firstAttribute="leading" secondItem="7vt-GC-CwK" secondAttribute="leading" constant="15" id="WSa-wE-bXr"/>
+                                        <constraint firstAttribute="bottom" secondItem="2hq-Lb-Ni4" secondAttribute="bottom" id="YJF-Y3-9Zp"/>
+                                        <constraint firstItem="d55-j9-M27" firstAttribute="top" secondItem="7vt-GC-CwK" secondAttribute="top" constant="11" id="kql-8v-Dff"/>
+                                        <constraint firstAttribute="bottom" secondItem="d55-j9-M27" secondAttribute="bottom" constant="11" id="uvv-Be-Lo4"/>
+                                        <constraint firstItem="2hq-Lb-Ni4" firstAttribute="top" secondItem="7vt-GC-CwK" secondAttribute="top" id="vvC-vR-FrY"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AHe-0J-ufO" id="VcN-UJ-gqk"/>
+                            <outlet property="delegate" destination="AHe-0J-ufO" id="IEf-YN-mbx"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fzv-jw-gCJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121.73913043478262" y="120.53571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="no-way-home-cover" width="1280" height="1920"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
