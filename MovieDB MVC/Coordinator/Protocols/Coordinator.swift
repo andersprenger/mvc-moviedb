@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Protocol responsable for managing navigation of the view controllers in the app.
 protocol Coordinator {
     var navigationController: UINavigationController { get set }
     

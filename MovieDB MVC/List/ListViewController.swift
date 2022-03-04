@@ -7,8 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ListViewController: UITableViewController, Storyboarded {
+    var coordinator: Coordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

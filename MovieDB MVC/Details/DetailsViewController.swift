@@ -7,8 +7,9 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
-
+class DetailsViewController: UIViewController, Storyboarded {
+    var coordinator: Coordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
