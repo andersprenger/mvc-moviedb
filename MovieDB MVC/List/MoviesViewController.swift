@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Movies: UITableViewController, Storyboarded {
+class MoviesViewController: UITableViewController, Storyboarded {
     var coordinator: Coordinator?
     
     enum MovieListType: CaseIterable {
@@ -19,7 +19,7 @@ class Movies: UITableViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        coordinator?.navigationController.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Movies"
     }
     
@@ -59,6 +59,10 @@ class Movies: UITableViewController, Storyboarded {
         case .playing, .popular:
             return tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as! MovieCell
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        (coordinator as? MainCoordinator)?.showDetails()
     }
 }
 
