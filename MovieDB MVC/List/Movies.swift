@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ListViewController: UITableViewController, Storyboarded {
+class Movies: UITableViewController, Storyboarded {
     var coordinator: Coordinator?
     
     override func viewDidLoad() {

@@ -16,7 +16,7 @@ class MainCoordinator: Coordinator {
     }
     
     func start() {
-        let vc = ListViewController.instantiate()
+        let vc = Movies.instantiate()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
