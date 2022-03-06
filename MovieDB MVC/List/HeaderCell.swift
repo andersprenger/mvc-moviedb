@@ -8,6 +8,7 @@
 import UIKit
 
 class HeaderCell: UITableViewCell {
+    static var identifier: String = "HeaderCell"
     var title: String?
 
     @IBOutlet private weak var headerTitle: UILabel!
