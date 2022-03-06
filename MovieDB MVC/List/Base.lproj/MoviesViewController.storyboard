@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movies View Controller-->
+        <scene sceneID="4kv-8a-gT7">
+            <objects>
+                <tableViewController storyboardIdentifier="MoviesViewController" id="AHe-0J-ufO" customClass="MoviesViewController" customModule="MovieDB_MVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="xvs-ZC-slw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" id="ImY-D6-Fsb" customClass="HeaderCell" customModule="MovieDB_MVC" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="36.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ImY-D6-Fsb" id="1Sx-13-tT0">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="36.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOR-dK-ubX">
+                                            <rect key="frame" x="15" y="12" width="384" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="IOR-dK-ubX" secondAttribute="bottom" constant="4" id="F9r-9h-B2f"/>
+                                        <constraint firstAttribute="trailing" secondItem="IOR-dK-ubX" secondAttribute="trailing" constant="15" id="IR3-Wc-d2b"/>
+                                        <constraint firstItem="IOR-dK-ubX" firstAttribute="top" secondItem="1Sx-13-tT0" secondAttribute="top" constant="12" id="Q3Q-fJ-nYO"/>
+                                        <constraint firstItem="IOR-dK-ubX" firstAttribute="leading" secondItem="1Sx-13-tT0" secondAttribute="leading" constant="15" id="xMF-1h-LmG"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="headerTitle" destination="IOR-dK-ubX" id="5kM-Ar-xBq"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="138" id="frY-rw-9NB" customClass="MovieCell" customModule="MovieDB_MVC" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="81" width="414" height="138"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="frY-rw-9NB" id="7vt-GC-CwK">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-way-home-cover" translatesAutoresizingMaskIntoConstraints="NO" id="2hq-Lb-Ni4">
+                                            <rect key="frame" x="15" y="10" width="79" height="118"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="118" id="axO-eS-X2M"/>
+                                                <constraint firstAttribute="width" constant="79" id="gjx-kC-niw"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d55-j9-M27">
+                                            <rect key="frame" x="109" y="11" width="290" height="116"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Homem-Aranha: Sem Volta Para Casa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JO-la-BSs">
+                                                    <rect key="frame" x="0.0" y="0.0" width="253.5" height="37"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEP-7p-maS">
+                                                    <rect key="frame" x="0.0" y="47" width="281" height="47"/>
+                                                    <string key="text">Peter Parker é desmascarado e não consegue mais separar sua vida normal dos grandes riscos de ser um super-herói. Quando ele pede ajuda ao Doutor Estranho, os riscos se tornam ainda mais perigosos, e o forçam a descobrir o que realmente significa ser o Homem-Aranha.
+</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="yHt-TJ-F1R">
+                                                    <rect key="frame" x="0.0" y="104" width="33" height="12"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HeI-Aw-tRS">
+                                                            <rect key="frame" x="0.0" y="-0.5" width="12" height="12"/>
+                                                            <color key="tintColor" red="0.85490196080000003" green="0.85490196080000003" blue="0.85490196080000003" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="HeI-Aw-tRS" secondAttribute="height" id="ed0-bM-spH"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diq-uI-RPp">
+                                                            <rect key="frame" x="15" y="0.0" width="18" height="12"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="12" id="Kv0-rl-4nI"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="d55-j9-M27" firstAttribute="leading" secondItem="2hq-Lb-Ni4" secondAttribute="trailing" constant="15" id="6dK-Ej-GRN"/>
+                                        <constraint firstAttribute="trailing" secondItem="d55-j9-M27" secondAttribute="trailing" constant="15" id="8gI-xd-zxZ"/>
+                                        <constraint firstItem="2hq-Lb-Ni4" firstAttribute="leading" secondItem="7vt-GC-CwK" secondAttribute="leading" constant="15" id="WSa-wE-bXr"/>
+                                        <constraint firstAttribute="bottom" secondItem="2hq-Lb-Ni4" secondAttribute="bottom" constant="10" id="YJF-Y3-9Zp"/>
+                                        <constraint firstItem="d55-j9-M27" firstAttribute="top" secondItem="7vt-GC-CwK" secondAttribute="top" constant="11" id="kql-8v-Dff"/>
+                                        <constraint firstAttribute="bottom" secondItem="d55-j9-M27" secondAttribute="bottom" constant="11" id="uvv-Be-Lo4"/>
+                                        <constraint firstItem="2hq-Lb-Ni4" firstAttribute="top" secondItem="7vt-GC-CwK" secondAttribute="top" constant="10" id="vvC-vR-FrY"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="overview" destination="WEP-7p-maS" id="Pbm-x5-m7W"/>
+                                    <outlet property="poster" destination="2hq-Lb-Ni4" id="01d-Fb-eky"/>
+                                    <outlet property="rating" destination="diq-uI-RPp" id="sEu-bd-xiZ"/>
+                                    <outlet property="title" destination="1JO-la-BSs" id="QSU-cJ-qMh"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AHe-0J-ufO" id="VcN-UJ-gqk"/>
+                            <outlet property="delegate" destination="AHe-0J-ufO" id="IEf-YN-mbx"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fzv-jw-gCJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121.73913043478262" y="120.53571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="no-way-home-cover" width="1280" height="1920"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
