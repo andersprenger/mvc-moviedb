@@ -8,9 +8,10 @@
 import UIKit
 
 class DetailsViewController: UIViewController, Storyboarded {
-    var coordinator: Coordinator?
+    var coordinator: MainCoordinator?
     
     var movie: Movie?
+    var genresText: String?
     
     @IBOutlet private weak var poster: UIImageView!
     @IBOutlet private weak var movieTitle: UILabel!
@@ -28,7 +29,7 @@ class DetailsViewController: UIViewController, Storyboarded {
         
         poster.imageFromServerURL("https://image.tmdb.org/t/p/w200\(movie?.posterPath ?? "")", placeHolder: UIImage())
         movieTitle.text = movie?.title
-//        genres.text = movie.genres
+        genres.text = genresText
         overview.text = movie?.overview
         rating.text = "\(movie?.voteAverage ?? 0)"
     }

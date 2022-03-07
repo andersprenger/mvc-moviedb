@@ -8,9 +8,8 @@
 import UIKit
 
 class MoviesViewController: UITableViewController, Storyboarded {
-    var coordinator: Coordinator?
+    var coordinator: MainCoordinator?
     var movies: [Movie] = []
-    var posters: [Int: UIImage] = [:]
     let movieAPI = MovieAPI()
     
     enum MovieListType: CaseIterable {
@@ -40,11 +39,11 @@ class MoviesViewController: UITableViewController, Storyboarded {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let currentSection = sections[section]
         
-        switch currentSection { // FIXME: change hardcoded numbers in .popular & .playing when service is implemented.
+        switch currentSection {
         case .popularHeader:
             return 1
         case .popular:
-            return movies.count
+            return movies.count < 3 ? movies.count : 3
         case .playingHeader:
             return 1
         case .playing:
@@ -78,7 +77,7 @@ class MoviesViewController: UITableViewController, Storyboarded {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        (coordinator as? MainCoordinator)?.showDetails(of: movies[indexPath.row])
+        coordinator?.showDetails(of: movies[indexPath.row], api: movieAPI)
     }
 }
 
