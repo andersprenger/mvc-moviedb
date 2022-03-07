@@ -8,10 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var movie: [Movie] = []
+    let movieAPI = MovieAPI()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        movieAPI.requestMovies { movies in
+            self.movie = movies
+            
+          
+        }
     }
 
 
