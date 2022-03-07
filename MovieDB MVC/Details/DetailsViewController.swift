@@ -10,7 +10,7 @@ import UIKit
 class DetailsViewController: UIViewController, Storyboarded {
     var coordinator: Coordinator?
     
-//    var movie: Movie?
+    var movie: Movie?
     
     @IBOutlet private weak var poster: UIImageView!
     @IBOutlet private weak var movieTitle: UILabel!
@@ -25,13 +25,11 @@ class DetailsViewController: UIViewController, Storyboarded {
         self.title = "Details"
         
         navigationItem.largeTitleDisplayMode = .never
-    }
-    
-//    func reload() {
-//        poster.image = movie.image
-//        movieTitle.text = movie.title
+        
+        poster.imageFromServerURL("https://image.tmdb.org/t/p/w200\(movie?.posterPath ?? "")", placeHolder: UIImage())
+        movieTitle.text = movie?.title
 //        genres.text = movie.genres
-//        overview.text = movie.overview
-//        rating.text = movie.rating
-//    }
+        overview.text = movie?.overview
+        rating.text = "\(movie?.voteAverage ?? 0)"
+    }
 }

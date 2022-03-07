@@ -78,7 +78,7 @@ class MoviesViewController: UITableViewController, Storyboarded {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        (coordinator as? MainCoordinator)?.showDetails()
+        (coordinator as? MainCoordinator)?.showDetails(of: movies[indexPath.row])
     }
 }
 
