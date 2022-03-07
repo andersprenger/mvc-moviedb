@@ -6,10 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
 struct MovieAPI {
-    var movie: [Movie] = []
-    
     func requestMovies(page: Int = 0, completionHandler: @escaping ([Movie]) -> Void) {
         if page < 0 { fatalError("Page should not be lower than 0") }
         let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=5bcebe37f3050767b767d16266b4398d"
@@ -22,7 +21,7 @@ struct MovieAPI {
             guard let data = data,
                   let json = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed),
                   let dictionary = json as? [String: Any]
-            
+                    
             else {
                 completionHandler([])
                 return
@@ -38,7 +37,7 @@ struct MovieAPI {
                       let posterPath = movieDictionary["poster_path"] as? String,
                       let voteAverage = movieDictionary["vote_average"] as? Double,
                       let releaseDate = movieDictionary["release_date"] as? String
-                
+                        
                 else { continue }
                 let movie = Movie(id: id, title: title , overview: overview, posterPath: posterPath, voteAverage: voteAverage, releaseDate: releaseDate)
                 
@@ -46,10 +45,21 @@ struct MovieAPI {
             }
             
             completionHandler(localMovie)
-           
+            
         }
         .resume()
         
     }
     
+    func loadCovers(of movies: [Movie], completionHandler: @escaping ([Int: UIImage]) -> ()) {
+        var posters: [Int: UIImage] = [:]
+
+        for movie in movies {
+            if posters[movie.id] == nil {
+                let img = movie.image
+                posters.updateValue(img, forKey: movie.id)
+                completionHandler(posters)
+            }
+        }
+    }
 }

@@ -5,7 +5,7 @@
 //  Created by Rodrigo de Anhaia on 04/03/22.
 //
 
-import Foundation
+import UIKit
 
 struct Movie: CustomStringConvertible {
     let id: Int
@@ -17,5 +17,15 @@ struct Movie: CustomStringConvertible {
     
     var description: String {
         return "\(title) is a(n) \(overview) with \(id) ID"
+    }
+    
+    var image: UIImage {
+        let urlString = "https://image.tmdb.org/t/p/w200\(posterPath)"
+        
+        guard let url = URL(string: urlString) else { return UIImage(named: "sample")! }
+        guard let data = try? Data(contentsOf: url) else { return UIImage(named: "sample")! }
+        guard let image = UIImage(data: data) else { return UIImage(named: "sample")! }
+        
+        return image
     }
 }

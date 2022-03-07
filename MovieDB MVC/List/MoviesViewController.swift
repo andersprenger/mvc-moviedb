@@ -9,6 +9,9 @@ import UIKit
 
 class MoviesViewController: UITableViewController, Storyboarded {
     var coordinator: Coordinator?
+    var movies: [Movie] = []
+    var posters: [Int: UIImage] = [:]
+    let movieAPI = MovieAPI()
     
     enum MovieListType: CaseIterable {
         case popularHeader, popular, playingHeader, playing
@@ -21,6 +24,20 @@ class MoviesViewController: UITableViewController, Storyboarded {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Movies"
+        
+        movieAPI.requestMovies { movies in
+            self.movies = movies
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+        movieAPI.loadCovers(of: movies) { posters in
+            self.posters = posters
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -34,11 +51,11 @@ class MoviesViewController: UITableViewController, Storyboarded {
         case .popularHeader:
             return 1
         case .popular:
-            return 3
+            return movies.count
         case .playingHeader:
             return 1
         case .playing:
-            return 10
+            return movies.count
         }
     }
     
@@ -57,7 +74,14 @@ class MoviesViewController: UITableViewController, Storyboarded {
             cell.reload()
             return cell
         case .playing, .popular:
-            return tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as! MovieCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as! MovieCell
+            
+            let movie = movies[indexPath.row]
+            cell.movie = movie
+            cell.image = posters[movie.id]
+            cell.reload()
+            
+            return cell
         }
     }
     

@@ -14,6 +14,8 @@
 		7135FC6A27D2CE4700E65744 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7135FC6927D2CE4700E65744 /* MainCoordinator.swift */; };
 		7135FC9A27D4328000E65744 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7135FC9927D4328000E65744 /* HeaderCell.swift */; };
 		7135FC9C27D4328E00E65744 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7135FC9B27D4328E00E65744 /* MovieCell.swift */; };
+		7135FCA027D6739E00E65744 /* ModelMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7135FC9F27D6739E00E65744 /* ModelMovie.swift */; };
+		7135FCA227D673B200E65744 /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7135FCA127D673B200E65744 /* MovieAPI.swift */; };
 		719140CA27D13FD90091350A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719140C927D13FD90091350A /* AppDelegate.swift */; };
 		719140CC27D13FD90091350A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719140CB27D13FD90091350A /* SceneDelegate.swift */; };
 		719140CE27D13FD90091350A /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719140CD27D13FD90091350A /* MoviesViewController.swift */; };
@@ -30,6 +32,8 @@
 		7135FC6927D2CE4700E65744 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		7135FC9927D4328000E65744 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		7135FC9B27D4328E00E65744 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		7135FC9F27D6739E00E65744 /* ModelMovie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelMovie.swift; path = "MovieDB MVC/Model/ModelMovie.swift"; sourceTree = SOURCE_ROOT; };
+		7135FCA127D673B200E65744 /* MovieAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieAPI.swift; path = "MovieDB MVC/API/MovieAPI.swift"; sourceTree = SOURCE_ROOT; };
 		719140C627D13FD90091350A /* MovieDB MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MovieDB MVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		719140C927D13FD90091350A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		719140CB27D13FD90091350A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +102,24 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		7135FC9D27D6735300E65744 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7135FCA127D673B200E65744 /* MovieAPI.swift */,
+			);
+			name = API;
+			path = App/API;
+			sourceTree = "<group>";
+		};
+		7135FC9E27D6735C00E65744 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7135FC9F27D6739E00E65744 /* ModelMovie.swift */,
+			);
+			name = Model;
+			path = App/API/Model;
+			sourceTree = "<group>";
+		};
 		719140BD27D13FD90091350A = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +143,8 @@
 				7135FC6727D2CBCA00E65744 /* Coordinator */,
 				7135FC3C27D29D9200E65744 /* List */,
 				7135FC3D27D29DAD00E65744 /* Details */,
+				7135FC9E27D6735C00E65744 /* Model */,
+				7135FC9D27D6735300E65744 /* API */,
 				719140D227D13FDB0091350A /* Assets.xcassets */,
 				719140D427D13FDB0091350A /* LaunchScreen.storyboard */,
 				719140D727D13FDB0091350A /* Info.plist */,
@@ -202,7 +226,9 @@
 			files = (
 				719140CE27D13FD90091350A /* MoviesViewController.swift in Sources */,
 				719140CA27D13FD90091350A /* AppDelegate.swift in Sources */,
+				7135FCA027D6739E00E65744 /* ModelMovie.swift in Sources */,
 				7135FC9C27D4328E00E65744 /* MovieCell.swift in Sources */,
+				7135FCA227D673B200E65744 /* MovieAPI.swift in Sources */,
 				7135FC6427D2C4ED00E65744 /* Coordinator.swift in Sources */,
 				719140CC27D13FD90091350A /* SceneDelegate.swift in Sources */,
 				7135FC9A27D4328000E65744 /* HeaderCell.swift in Sources */,
