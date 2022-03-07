@@ -50,16 +50,4 @@ struct MovieAPI {
         .resume()
         
     }
-    
-    func loadCovers(of movies: [Movie], completionHandler: @escaping ([Int: UIImage]) -> ()) {
-        var posters: [Int: UIImage] = [:]
-
-        for movie in movies {
-            if posters[movie.id] == nil {
-                let img = movie.image
-                posters.updateValue(img, forKey: movie.id)
-                completionHandler(posters)
-            }
-        }
-    }
 }

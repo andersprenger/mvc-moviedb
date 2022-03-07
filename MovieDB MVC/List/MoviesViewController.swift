@@ -31,13 +31,6 @@ class MoviesViewController: UITableViewController, Storyboarded {
                 self.tableView.reloadData()
             }
         }
-        
-        movieAPI.loadCovers(of: movies) { posters in
-            self.posters = posters
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,7 +71,6 @@ class MoviesViewController: UITableViewController, Storyboarded {
             
             let movie = movies[indexPath.row]
             cell.movie = movie
-            cell.image = posters[movie.id]
             cell.reload()
             
             return cell
