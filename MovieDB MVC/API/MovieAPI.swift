@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class MovieAPI {
+    private(set) var popularMovies: [Movie] = []
+    private(set) var playingMovies: [Movie] = []
     private var genreDictionary: [Int: String] = [:]
     
     init() {
@@ -20,8 +22,7 @@ class MovieAPI {
     /// - Parameters:
     ///     - completionHandler: a function where the UI should be reloaded when the request is completed.
     ///
-    func requestMovies(page: Int = 0, completionHandler: @escaping ([Movie]) -> Void) {
-        if page < 0 { fatalError("Page should not be lower than 0") }
+    func requestMovies(completionHandler: @escaping () -> Void) {
         let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=5bcebe37f3050767b767d16266b4398d"
         let url = URL(string: urlString)!
         
@@ -34,7 +35,7 @@ class MovieAPI {
                   let dictionary = json as? [String: Any]
                     
             else {
-                completionHandler([])
+                completionHandler()
                 return
             }
             guard let movie = dictionary["results"] as? [MovieArray] else { return }
@@ -56,12 +57,14 @@ class MovieAPI {
                 localMovie.append(movie)
             }
             
-            completionHandler(localMovie)
+            self.popularMovies += localMovie
+            completionHandler()
             
         }
         .resume()
-        
     }
+    
+    
     
     private func loadGenres() {
         let genresURL = URL(string: "https://api.themoviedb.org/3/genre/movie/list?api_key=5bcebe37f3050767b767d16266b4398d")!

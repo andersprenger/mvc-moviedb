@@ -7,9 +7,8 @@
 
 import UIKit
 
-class MoviesViewController: UITableViewController, Storyboarded {
+class MoviesViewController: UITableViewController, UISearchResultsUpdating, Storyboarded {
     var coordinator: MainCoordinator?
-    var movies: [Movie] = []
     let movieAPI = MovieAPI()
     
     enum MovieListType: CaseIterable {
@@ -23,9 +22,9 @@ class MoviesViewController: UITableViewController, Storyboarded {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Movies"
+        self.navigationItem.searchController = UISearchController()
         
-        movieAPI.requestMovies { movies in
-            self.movies = movies
+        movieAPI.requestMovies {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -43,11 +42,11 @@ class MoviesViewController: UITableViewController, Storyboarded {
         case .popularHeader:
             return 1
         case .popular:
-            return movies.count < 3 ? movies.count : 3
+            return movieAPI.popularMovies.count < 3 ? movieAPI.popularMovies.count : 3
         case .playingHeader:
             return 1
         case .playing:
-            return movies.count
+            return movieAPI.popularMovies.count
         }
     }
     
@@ -68,7 +67,7 @@ class MoviesViewController: UITableViewController, Storyboarded {
         case .playing, .popular:
             let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as! MovieCell
             
-            let movie = movies[indexPath.row]
+            let movie = movieAPI.popularMovies[indexPath.row]
             cell.movie = movie
             cell.reload()
             
@@ -77,7 +76,25 @@ class MoviesViewController: UITableViewController, Storyboarded {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.showDetails(of: movies[indexPath.row], api: movieAPI)
+        coordinator?.showDetails(of: movieAPI.popularMovies[indexPath.row], api: movieAPI)
+    }
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+
+        if maximumOffset - currentOffset <= 10 {
+            // TODO: paginação aqui...
+            print("manda mais")
+        }
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchString = searchController.searchBar.text else { return }
+
+        print(searchString)
+        
+        // FIXME: -- implement search...
     }
 }
 
