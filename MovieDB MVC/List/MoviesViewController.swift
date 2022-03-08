@@ -86,16 +86,28 @@ class MoviesViewController: UITableViewController, UISearchResultsUpdating, Stor
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator?.showDetails(of: movieAPI.popularMovies[indexPath.row], api: movieAPI)
+        let section = sections[indexPath.section]
+        
+        switch section {
+        case .popular:
+            coordinator?.showDetails(of: movieAPI.popularMovies[indexPath.row], api: movieAPI)
+        case .playing:
+            coordinator?.showDetails(of: movieAPI.nowPlayingMovies[indexPath.row], api: movieAPI)
+        default:
+            return
+        }
     }
     
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-
+        
         if maximumOffset - currentOffset <= 10 {
-            // TODO: paginação aqui...
-            print("manda mais")
+            movieAPI.requestNowPlayingMovies {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
         }
     }
     

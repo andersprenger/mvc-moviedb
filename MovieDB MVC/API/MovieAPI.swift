@@ -12,6 +12,7 @@ class MovieAPI {
     private(set) var popularMovies: [Movie] = []
     private(set) var nowPlayingMovies: [Movie] = []
     private var genreDictionary: [Int: String] = [:]
+    private var page = 1
     
     private let API_KEY = "5bcebe37f3050767b767d16266b4398d"
     
@@ -25,7 +26,7 @@ class MovieAPI {
     ///     - completionHandler: a function where the UI should be reloaded when the request is completed.
     ///
     func requestNowPlayingMovies(completionHandler: @escaping () -> Void) {
-        let urlString = "https://api.themoviedb.org/3/movie/now_playing?api_key=\(API_KEY)"
+        let urlString = "https://api.themoviedb.org/3/movie/now_playing?api_key=\(API_KEY)&page=\(page)"
         let url = URL(string: urlString)!
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -60,6 +61,7 @@ class MovieAPI {
             }
             
             self.nowPlayingMovies += localMovie
+            self.page += 1
             completionHandler()
             
         }
