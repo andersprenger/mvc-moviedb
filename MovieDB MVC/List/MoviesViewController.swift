@@ -24,7 +24,13 @@ class MoviesViewController: UITableViewController, UISearchResultsUpdating, Stor
         self.title = "Movies"
         self.navigationItem.searchController = UISearchController()
         
-        movieAPI.requestMovies {
+        movieAPI.requestPopularMovies {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+        movieAPI.requestNowPlayingMovies {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -46,7 +52,7 @@ class MoviesViewController: UITableViewController, UISearchResultsUpdating, Stor
         case .playingHeader:
             return 1
         case .playing:
-            return movieAPI.popularMovies.count
+            return movieAPI.nowPlayingMovies.count
         }
     }
     
@@ -64,13 +70,17 @@ class MoviesViewController: UITableViewController, UISearchResultsUpdating, Stor
             cell.title = "Now Playing"
             cell.reload()
             return cell
-        case .playing, .popular:
+        case .playing:
             let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as! MovieCell
-            
+            let movie = movieAPI.nowPlayingMovies[indexPath.row]
+            cell.movie = movie
+            cell.reload()
+            return cell
+        case .popular:
+            let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as! MovieCell
             let movie = movieAPI.popularMovies[indexPath.row]
             cell.movie = movie
             cell.reload()
-            
             return cell
         }
     }
@@ -94,7 +104,7 @@ class MoviesViewController: UITableViewController, UISearchResultsUpdating, Stor
 
         print(searchString)
         
-        // FIXME: -- implement search...
+        // TODO: pesquisa...
     }
 }
 
