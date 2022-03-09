@@ -21,17 +21,15 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func showDetails() {
+    /// Open a view with details of a movie.
+    /// - Parameters:
+    ///     - of: movie wich details will be displayed.
+    ///     - api: the app data source.
+    func showDetails(of movie: Movie, api: MovieAPI) {
         let vc = DetailsViewController.instantiate()
         vc.coordinator = self
+        vc.movie = movie
+        vc.genresText = api.getGeneresText(of: movie)
         navigationController.pushViewController(vc, animated: true)
     }
-    
-//    func showDetails(of movie: Movie) {
-//        let vc = DetailsViewController.instantiate()
-//        vc.coordinator = self
-//        vc.movie = movie
-//        vc.reload()
-//        navigationController.pushViewController(vc, animated: true)
-//    }
 }

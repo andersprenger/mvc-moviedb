@@ -5,13 +5,14 @@
 //  Created by Rodrigo de Anhaia on 04/03/22.
 //
 
-import Foundation
+import UIKit
 
 struct Movie: CustomStringConvertible {
     let id: Int
     let title: String
     let overview: String
     let posterPath: String
+    let genres: [Int]
     let voteAverage: Double
     let releaseDate: String
     

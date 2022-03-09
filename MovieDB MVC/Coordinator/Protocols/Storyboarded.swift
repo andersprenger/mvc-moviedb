@@ -10,9 +10,6 @@ import UIKit
 
 /// Represents a view controller that is loaded from a storyboard.
 protocol Storyboarded {
-    /// The coordinator responsable for the navigation of this view controller.
-    var coordinator: Coordinator? { get set }
-    
     /// Instantiate a view controller from a storyboard whose file name and id are the same as their class name.
     /// - Returns: The UIViewController instance for the view.
     static func instantiate() -> Self
