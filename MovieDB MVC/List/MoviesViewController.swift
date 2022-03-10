@@ -47,18 +47,20 @@ class MoviesViewController: UITableViewController, UISearchResultsUpdating, Stor
     override func numberOfSections(in tableView: UITableView) -> Int {
         if searchController.isActive {
             return 1
+            
         } else {
+            
             return sections.count
         }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let currentSection = sections[section]
-        
         if searchController.isActive {
-            return movieAPI.searchMovie.count
+            return movieAPI.searchMovies.count
             
         } else {
+            
+            let currentSection = sections[section]
             
             switch currentSection {
             case .popularHeader:
@@ -78,7 +80,7 @@ class MoviesViewController: UITableViewController, UISearchResultsUpdating, Stor
         
         if searchController.isActive {
             let cell = tableView.dequeueReusableCell(withIdentifier: MovieCell.identifier, for: indexPath) as! MovieCell
-            let movie = movieAPI.searchMovie[indexPath.row]
+            let movie = movieAPI.searchMovies[indexPath.row]
             cell.movie = movie
             cell.reload()
             return cell
@@ -113,11 +115,13 @@ class MoviesViewController: UITableViewController, UISearchResultsUpdating, Stor
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let section = sections[indexPath.section]
-        
         if searchController.isActive {
-            coordinator?.showDetails(of: movieAPI.searchMovie[indexPath.row], api: movieAPI)
+            coordinator?.showDetails(of: movieAPI.searchMovies[indexPath.row], api: movieAPI)
+            
         } else {
+            
+            let section = sections[indexPath.section]
+            
             switch section {
             case .popular:
                 coordinator?.showDetails(of: movieAPI.popularMovies[indexPath.row], api: movieAPI)
@@ -145,9 +149,6 @@ class MoviesViewController: UITableViewController, UISearchResultsUpdating, Stor
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchString = searchController.searchBar.text else { return }
         
-        print(searchString)
-        print("Ative: ", searchController.isActive, "Array search movies: ", movieAPI.searchMovie)
-        
         movieAPI.searchMovie(searchText: searchString) {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -156,13 +157,14 @@ class MoviesViewController: UITableViewController, UISearchResultsUpdating, Stor
         
     }
     
-    //MARK: Objc Refresh
+    // MARK: @objc refresh
     @objc func refresh() {
         movieAPI.reload {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
+        
         refreshControl?.endRefreshing()
     }
 }
