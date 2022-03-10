@@ -8,7 +8,7 @@
 import UIKit
 
 class MoviesViewController: UITableViewController, UISearchResultsUpdating, Storyboarded {
-    var coordinator: MainCoordinator?
+    var coordinator: Coordinator?
     let movieAPI = MovieAPI()
     let searchController = UISearchController()
     

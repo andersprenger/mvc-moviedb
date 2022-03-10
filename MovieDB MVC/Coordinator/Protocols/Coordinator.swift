@@ -13,4 +13,10 @@ protocol Coordinator {
     
     /// Starts the navigation wich this coordinator is responsable.
     func start()
+    
+    /// Open a view with details of a movie.
+    /// - Parameters:
+    ///     - of: movie wich details will be displayed.
+    ///     - api: the app data source.
+    func showDetails(of movie: Movie, api: MovieAPI)
 }
