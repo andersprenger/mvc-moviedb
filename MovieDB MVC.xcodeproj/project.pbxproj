@@ -42,6 +42,7 @@
 		719140D227D13FDB0091350A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		719140D527D13FDB0091350A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		719140D727D13FDB0091350A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71B2C6F327D945EB00D6405A /* MovieParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieParser.swift; sourceTree = "<group>"; };
 		E0BE98EB27D910AF00170613 /* MovieAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
 		E0BE98EE27D910C400170613 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				E0BE98EB27D910AF00170613 /* MovieAPI.swift */,
+				71B2C6F327D945EB00D6405A /* MovieParser.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -236,6 +238,7 @@
 				7135FC9A27D4328000E65744 /* HeaderCell.swift in Sources */,
 				7135FC3927D2947000E65744 /* DetailsViewController.swift in Sources */,
 				7135FC6627D2C66D00E65744 /* Storyboarded.swift in Sources */,
+				71B2C6F427D945EB00D6405A /* MovieParser.swift in Sources */,
 				7135FC6A27D2CE4700E65744 /* MainCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

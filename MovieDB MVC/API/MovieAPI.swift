@@ -42,21 +42,13 @@ class MovieAPI {
                 completionHandler()
                 return
             }
-            guard let movie = dictionary["results"] as? [MovieArray] else { return }
+            
+            guard let movies = dictionary["results"] as? [MovieArray] else { return }
             
             var localMovie: [Movie] = []
             
-            for movieDictionary in movie {
-                guard let id = movieDictionary["id"] as? Int,
-                      let title = movieDictionary["title"] as? String,
-                      let overview = movieDictionary["overview"] as? String,
-                      let posterPath = movieDictionary["poster_path"] as? String,
-                      let voteAverage = movieDictionary["vote_average"] as? Double,
-                      let releaseDate = movieDictionary["release_date"] as? String,
-                      let genres = movieDictionary["genre_ids"] as? [Int]
-                        
-                else { continue }
-                let movie = Movie(id: id, title: title , overview: overview, posterPath: posterPath, genres: genres, voteAverage: voteAverage, releaseDate: releaseDate)
+            for movieDictionary in movies {
+                guard let movie = MovieParser.parseMovie(from: movieDictionary) else { continue }
                 
                 localMovie.append(movie)
             }
@@ -90,21 +82,13 @@ class MovieAPI {
                 completionHandler()
                 return
             }
-            guard let movie = dictionary["results"] as? [MovieArray] else { return }
+            
+            guard let movies = dictionary["results"] as? [MovieArray] else { return }
             
             var localMovie: [Movie] = []
             
-            for movieDictionary in movie {
-                guard let id = movieDictionary["id"] as? Int,
-                      let title = movieDictionary["title"] as? String,
-                      let overview = movieDictionary["overview"] as? String,
-                      let posterPath = movieDictionary["poster_path"] as? String,
-                      let voteAverage = movieDictionary["vote_average"] as? Double,
-                      let releaseDate = movieDictionary["release_date"] as? String,
-                      let genres = movieDictionary["genre_ids"] as? [Int]
-                        
-                else { continue }
-                let movie = Movie(id: id, title: title , overview: overview, posterPath: posterPath, genres: genres, voteAverage: voteAverage, releaseDate: releaseDate)
+            for movieDictionary in movies {
+                guard let movie = MovieParser.parseMovie(from: movieDictionary) else { continue }
                 
                 localMovie.append(movie)
             }
@@ -134,21 +118,13 @@ class MovieAPI {
                 completionHandler()
                 return
             }
-            guard let movie = dictionary["results"] as? [MovieArray] else { return }
+            
+            guard let movies = dictionary["results"] as? [MovieArray] else { return }
             
             var localMovie: [Movie] = []
             
-            for movieDictionary in movie {
-                guard let id = movieDictionary["id"] as? Int,
-                      let title = movieDictionary["title"] as? String,
-                      let overview = movieDictionary["overview"] as? String,
-                      let posterPath = movieDictionary["poster_path"] as? String,
-                      let voteAverage = movieDictionary["vote_average"] as? Double,
-                      let releaseDate = movieDictionary["release_date"] as? String,
-                      let genres = movieDictionary["genre_ids"] as? [Int]
-                        
-                else { continue }
-                let movie = Movie(id: id, title: title , overview: overview, posterPath: posterPath, genres: genres, voteAverage: voteAverage, releaseDate: releaseDate)
+            for movieDictionary in movies {
+                guard let movie = MovieParser.parseMovie(from: movieDictionary) else { continue }
                 
                 localMovie.append(movie)
             }
@@ -161,7 +137,7 @@ class MovieAPI {
     }
     
     private func loadGenres() {
-        let genresURL = URL(string: "https://api.themoviedb.org/3/genre/movie/list?api_key=5bcebe37f3050767b767d16266b4398d")!
+        let genresURL = URL(string: "https://api.themoviedb.org/3/genre/movie/list?api_key=\(API_KEY)")!
         
         URLSession.shared.dataTask(with: genresURL) { data, response, error in
             
