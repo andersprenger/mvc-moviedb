@@ -8,8 +8,6 @@
 import UIKit
 
 class DetailsViewController: UIViewController, Storyboarded {
-    var coordinator: MainCoordinator?
-    
     var movie: Movie?
     var genresText: String?
     
